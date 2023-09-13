@@ -29,7 +29,7 @@ class tftp::config {
       systemd::dropin_file { 'tftp-service-override.conf':
         unit    => 'tftp.service',
         content => epp('tftp/tftp.service-override.epp'),
-        require => Systemd::Dropin_file['tftp-socket-override.conf']
+        require => Systemd::Dropin_file['tftp-socket-override.conf'],
       }
     }
     default: {}
