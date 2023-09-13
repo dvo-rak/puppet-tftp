@@ -46,7 +46,6 @@ describe 'tftp' do
           should contain_service('tftp.socket')
             .with_ensure('running')
             .with_enable('true')
-            .with_alias('tftpd')
             .that_subscribes_to('Class[Tftp::Config]')
         end
 
@@ -64,7 +63,6 @@ describe 'tftp' do
           should contain_service('tftpd')
             .with_ensure('running')
             .with_enable('true')
-            .with_alias('tftpd')
             .that_subscribes_to('Class[Tftp::Config]')
         end
       when 'Archlinux'
@@ -72,7 +70,6 @@ describe 'tftp' do
           should contain_service('tftpd.socket')
             .with_ensure('running')
             .with_enable('true')
-            .with_alias('tftpd')
             .that_subscribes_to('Class[Tftp::Config]')
         end
       else
@@ -80,7 +77,6 @@ describe 'tftp' do
           should contain_service('tftpd-hpa')
             .with_ensure('running')
             .with_enable('true')
-            .with_alias('tftpd')
             .that_subscribes_to('Class[Tftp::Config]')
         end
       end
@@ -151,7 +147,6 @@ describe 'tftp' do
       should contain_service('tftp.socket')
         .with_ensure('running')
         .with_enable('true')
-        .with_alias('tftpd')
         .that_subscribes_to('Class[Tftp::Config]')
     end
   end
