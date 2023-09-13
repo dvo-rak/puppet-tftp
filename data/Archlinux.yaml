@@ -1,7 +1,7 @@
 ---
-tftp::package: tftpd-hpa
+tftp::package: tftp-hpa
 tftp::root: "/srv/tftp"
-tftp::service: tftpd.socket
+tftp::service: ['tftp.socket','tftp.service']
 tftp::syslinux_package: syslinux
 tftp::username: 'tftp'
 tftp::options: '--secure'
