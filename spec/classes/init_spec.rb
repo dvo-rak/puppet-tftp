@@ -51,8 +51,13 @@ describe 'tftp' do
         end
 
         it 'should contain the service override' do
-          should contain_systemd__dropin_file('root-directory.conf')
-            .with_content(%r{^ExecStart=/usr/sbin/in\.tftp -s /var/lib/tftpboot$})
+          should contain_systemd__dropin_file('tftp-service-override.conf')
+            .with_content(%r{^ExecStart=/usr/sbin/in\.tftp --secure /var/lib/tftpboot$})
+        end
+
+        it 'should contain the socket override' do
+          should contain_systemd__dropin_file('tftp-socket-override.conf')
+            .with_content(%r{^ListenDatagram=})
         end
       when 'FreeBSD'
         it 'should contain the service' do
