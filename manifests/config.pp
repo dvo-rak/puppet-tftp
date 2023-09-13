@@ -32,7 +32,7 @@ class tftp::config {
         content => template('tftp/tftpd-hpa.erb'),
       }
 
-      File['/etc/conf.d/tftpd'] ~> Systemd::Daemon_reload['Archlinux_tftpd'] ~> Service['tftpd.socket'] ~> Service['tftpd.service']
+      File['/etc/conf.d/tftpd'] ~> Systemd::Daemon_reload['Archlinux_tftpd'] ~> Service['tftpd.socket']
     }
     'RedHat': {
       systemd::dropin_file { 'tftp-socket-override.conf':
