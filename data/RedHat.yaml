@@ -3,4 +3,4 @@ tftp::service: tftp.socket
 tftp::package: tftp-server
 tftp::root: "/var/lib/tftpboot"
 tftp::syslinux_package: syslinux
-tftp::options: '-s'
+tftp::options: '--secure'

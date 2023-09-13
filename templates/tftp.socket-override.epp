@@ -1,0 +1,8 @@
+[Unit]
+Description=Tftp Server Activation Socket
+
+[Socket]
+ListenDatagram=<%= $tftp::port %>
+
+[Install]
+WantedBy=sockets.target

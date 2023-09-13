@@ -22,9 +22,13 @@ class tftp::config {
       }
     }
     'RedHat': {
-      systemd::dropin_file { 'root-directory.conf':
+      systemd::dropin_file { 'tftp-service-override.conf':
         unit    => 'tftp.service',
         content => epp('tftp/tftp.service-override.epp'),
+      }
+      systemd::dropin_file { 'tftp-socket-override.conf':
+        unit    => 'tftp.socket',
+        content => epp('tftp/tftp.socket-override.epp'),
       }
     }
     default: {}
