@@ -12,7 +12,7 @@ class tftp::config {
         changes => "set tftpd_flags '\"-s ${tftp::root}\"'",
       }
     }
-    'Debian': {
+    'Debian', 'Archlinux': {
       file { '/etc/default/tftpd-hpa':
         ensure  => file,
         owner   => 'root',
