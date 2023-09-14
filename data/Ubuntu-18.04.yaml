@@ -1,2 +1,2 @@
 ---
-tftp::root: "/var/lib/tftpboot"
+tftp::root: '/var/lib/tftpboot'
