@@ -1,0 +1,4 @@
+[Service]
+ExecStart=
+ExecStart=/usr/sbin/in.tftpd <%= $tftp::options %> <%= $tftp::root %>
+EnvironmentFile=
