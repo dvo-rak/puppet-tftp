@@ -45,6 +45,5 @@ class tftp::config {
     }
     default: {
       notify { "Unsupported platform: ${facts['os']['family']}, the tftp service will run with with default parameters": }
-    }
   }
 }
