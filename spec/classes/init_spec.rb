@@ -67,7 +67,7 @@ describe 'tftp' do
         end
       when 'Archlinux'
         it 'should contain the service' do
-          should contain_service('tftpd.socket')
+          should contain_service('tftpd.service')
             .with_ensure('running')
             .with_enable('true')
             .that_subscribes_to('Class[Tftp::Config]')
