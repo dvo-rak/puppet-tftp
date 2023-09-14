@@ -1,4 +1,4 @@
 [Service]
 ExecStart=
-ExecStart=/usr/sbin/in.tftpd <%= $tftp::options %> <%= $tftp::root %>
+ExecStart=/usr/sbin/in.tftpd --listen <%= $tftp::options %> <%= $tftp::root %>
 EnvironmentFile=
