@@ -19,17 +19,17 @@ class tftp::config {
         group   => 'root',
         mode    => '0644',
         content => template('tftp/tftpd-hpa.erb'),
+        notify  => Service["$tftp::service"],
       }
     }
     'Archlinux': {
-      systemd::dropin_file { 'tftpd-socket-override.conf':
-        unit    => 'tftpd.socket',
-        content => epp('tftp/tftp.socket-override.epp'),
-      }
-      systemd::dropin_file { 'tftpd-service-override.conf':
-        unit    => 'tftpd.service',
-        content => epp('tftp/tftp.service-override-arch.epp'),
-        require => Systemd::Dropin_file['tftpd-socket-override.conf'],
+      file { '/etc/conf.d/tftpd':
+        ensure  => file,
+        owner   => 'root',
+        group   => 'root',
+        mode    => '0644',
+        content => template('tftp/tftpd.erb'),
+        notify  => Service["$tftp::service"],
       }
     }
     'RedHat': {
@@ -39,7 +39,7 @@ class tftp::config {
       }
       systemd::dropin_file { 'tftp-service-override.conf':
         unit    => 'tftp.service',
-        content => epp('tftp/tftp.service-override-el.epp'),
+        content => epp('tftp/tftp.service-override.epp'),
         require => Systemd::Dropin_file['tftp-socket-override.conf'],
       }
     }
