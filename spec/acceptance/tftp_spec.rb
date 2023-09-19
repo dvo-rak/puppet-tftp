@@ -16,7 +16,7 @@ describe 'tftp with default parameters' do
 
   service_name = case fact('osfamily')
                  when 'Archlinux'
-                   'tftpd.socket'
+                   'tftpd.service'
                  when 'RedHat'
                    'tftp.socket'
                  when 'Debian'
