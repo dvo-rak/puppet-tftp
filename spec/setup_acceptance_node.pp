@@ -7,7 +7,7 @@ unless $facts['os']['family'] == 'Archlinux' {
 
 # without it "ss" command is not found and "port listening" tests fail
 if $facts['os']['name'] == 'Fedora' {
-  package {'iproute2':
+  package {'iproute':
     ensure => installed,
   }
 }
