@@ -29,7 +29,7 @@ describe 'tftp with default parameters' do
   end
 
   describe port(69) do
-    it { is_expected.to be_listening.with('udp') }
+    it { is_expected.to be_listening.with('udp').or be_listening.with('udp6') }
   end
 
   describe command("echo get /test /tmp/downloaded_file | tftp #{fact('fqdn')}") do

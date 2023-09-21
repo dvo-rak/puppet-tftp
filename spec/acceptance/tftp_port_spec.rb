@@ -35,7 +35,7 @@ describe 'tftp with default parameters' do
   end
 
   describe port(1234)  do
-    it { is_expected.to be_listening.with('udp') }
+    it { is_expected.to be_listening.with('udp').or be_listening.with('udp6') }
   end
 
   describe 'ensure tftp client is installed' do
