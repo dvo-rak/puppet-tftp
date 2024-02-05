@@ -21,6 +21,10 @@ describe 'tftp' do
         should contain_class('tftp::service')
       end
 
+      it 'should install tftp client packages' do
+        should contain_package('tftp').with_ensure('installed')
+      end
+
       it 'should install default package' do
         tftp_package = case facts[:osfamily]
                        when 'RedHat'
